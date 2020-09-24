@@ -45,14 +45,13 @@ def run_combat_round(attacking_agency, defending_agency):
 COMBAT_SPEED = 2
 
 while Western_Agency and Eastern_Agency:
-  first = random.choice((Western_Agency, Eastern_Agency))
-  second = Western_Agency if first is Eastern_Agency else Eastern_Agency
+  agencies = random.sample((Western_Agency, Eastern_Agency), 2)
 
-  run_combat_round(first, second)
+  run_combat_round(agencies[0], agencies[1])
   time.sleep(COMBAT_SPEED)
 
   if Western_Agency and Eastern_Agency:
-    run_combat_round(second, first)
+    run_combat_round(agencies[1], agencies[0])
     time.sleep(COMBAT_SPEED)
 
 if(Western_Agency):
