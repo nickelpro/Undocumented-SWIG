@@ -11,7 +11,7 @@ struct AgentUpdate {
 
 class SecretAgent {
 public:
-  std::string call_sign;
+  std::string call_sign {"Spy"};
 
   SecretAgent(int id);
   SecretAgent(int id, const std::string& call_sign);
@@ -26,8 +26,8 @@ public:
 
 private:
   const int id;
-  float health;
-  std::default_random_engine random_engine;
+  float health {100.0};
+  std::default_random_engine random_engine {std::random_device{}()};
   std::uniform_int_distribution<std::uint64_t> secret_generator;
-  std::uniform_real_distribution<float> combat_generator;
+  std::uniform_real_distribution<float> combat_generator {0, 100};
 };

@@ -1,12 +1,9 @@
 #include "Agent.hpp"
 
-SecretAgent::SecretAgent(const int id) : call_sign("Spy"), id(id),
-    health(100.0), random_engine(std::random_device{}()),
-    combat_generator(0, 100) {}
+SecretAgent::SecretAgent(const int id) : id(id) {}
 
 SecretAgent::SecretAgent(const int id, const std::string& call_sign) :
-    call_sign(call_sign), id(id), health(100.0),
-    random_engine(std::random_device{}()), combat_generator(0, 100) {}
+    call_sign(call_sign), id(id) {}
 
 AgentUpdate SecretAgent::generate_update() {
   return AgentUpdate {
